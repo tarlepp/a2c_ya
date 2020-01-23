@@ -9,7 +9,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class FooBarCommand extends Command
@@ -18,9 +17,9 @@ class FooBarCommand extends Command
 
     private $eventDispatcher;
 
-    public function __construct(string $name = null, EventDispatcherInterface $eventDispatcher)
+    public function __construct(EventDispatcherInterface $eventDispatcher)
     {
-        parent::__construct($name);
+        parent::__construct(self::$defaultName);
 
         $this->eventDispatcher = $eventDispatcher;
     }
